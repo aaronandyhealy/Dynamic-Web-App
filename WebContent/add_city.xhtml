@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:f="http://xmlns.jcp.org/jsf/core">
+  
+  <h:head>
+    <title>New City</title>
+  </h:head>
+  
+  <h:body>
+	<h:messages globalOnly="true" styleClass="error"/>
+  	<h3>City Details</h3>
+    <h:form>
+   	  City Code: <h:inputText value="#{city.cty_code}" id="cty_code" required="true" requiredMessage="City Code is mandatory"></h:inputText>
+  	  <h:message for="co_code" styleClass="error" />
+      <br/>
+      <br/>
+      Country Code: <h:inputText value="#{city.co_code}" id="co_code" required="true" requiredMessage="Country Code is mandatory"></h:inputText>
+  	  <h:message for="co_code" styleClass="error" />
+      <br/>
+      <br/>
+      Region Code: <h:inputText value="#{city.reg_code}" id="reg_code" required="true" requiredMessage="Region Code is mandatory"></h:inputText>
+      <h:message for="reg_code" styleClass="error" />
+      <br/>
+      <br/>
+      City Name: <h:inputText value="#{city.cty_name}" id="cty_name" required="true"  requiredMessage="Name is mandatory"></h:inputText>
+      <h:message for="reg_code" styleClass="error" />
+      <br/>
+      <br/>
+      Population: <h:inputText value="#{city.population}" id="population"  ></h:inputInt>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      Area(KM): <h:inputText value="#{city.areaKM}" id="areaKM"  ></h:inputText>
+      <br/>
+      <br/>
+	<h:commandButton value="Add" action="#{controller.addRegion(region)}"/>
+   </h:form>
+  </h:body>
+</html>

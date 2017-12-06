@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>	
+	<title>Regions List</title>
+	
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{controller.loadRegions()}"/>
+	</f:metadata>
+	
+</h:head>
+<h:body>
+<h:button value="Add Region" outcome="add_region"/>
+<br/>
+<h:form>
+	<h:dataTable value = "#{controller.regions}" var = "region"
+				styleClass="region-table"
+    			headerClass="region-table-header"
+    			rowClasses="region-table-odd-row,order-table-even-row">
+	   
+	   	<h:column>    				
+	      <f:facet name = "header">Country Code</f:facet>    				
+	      #{region.co_code}
+	   	</h:column>
+	   
+	   	<h:column>
+	      <f:facet name = "header">Region Code</f:facet>
+	      #{region.reg_code}
+	   	</h:column>
+	   
+	   	<h:column>
+	      <f:facet name = "header">Region Name</f:facet>
+	      #{region.reg_name}
+	     
+	   	</h:column>
+	   	<h:column>
+		<f:facet name="header">Region Description</f:facet>
+ 		#{region.reg_desc}
+		</h:column>
+			   
+	</h:dataTable>
+	</h:form>
+	<br/>
+	<h:link value="Home" outcome="index"/>
+	
+</h:body>
+</html>
