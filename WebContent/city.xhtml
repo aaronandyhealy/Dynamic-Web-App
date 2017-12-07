@@ -12,7 +12,7 @@
 	
 </h:head>
 <h:body>
-<h:button value="Add City" outcome="add_region"/>
+<h:button value="Add City" outcome="add_city"/>
 <br/>
 <h:form>
 	<h:dataTable value = "#{controller.cities}" var = "city"
@@ -55,7 +55,7 @@
 		</h:column>
 		 <h:column>
 			<f:facet name="header">Action</f:facet>
- 			<h:commandLink value="All Details" action="#{controller.deleteCountry(country.co_code)}" />
+ 			<h:commandLink value="All Details" action="#{controller.loadCityDetails(city.cty_code)}"/>
 		</h:column>
 			   
 	</h:dataTable>

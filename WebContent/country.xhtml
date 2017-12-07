@@ -38,9 +38,10 @@
 	   <f:facet name="header">Action</f:facet>
 	   <h:form>
  			<h:commandLink value="Delete" action="#{controller.deleteCountry(country.co_code)}" />
+ 			<br/>
+ 			<h:commandLink value="Update" action="#{controller.loadCountry(country.co_code)}"/>
  		</h:form>
 		</h:column>
-	   
 	</h:dataTable>
 	<br/>
 	<h:link value="Home" outcome="index"/>

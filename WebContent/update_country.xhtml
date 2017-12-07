@@ -5,25 +5,23 @@
   xmlns:f="http://xmlns.jcp.org/jsf/core">
   
   <h:head>
-    <title>New Country</title>
+    <title>Update Country</title>
   </h:head>
   
   <h:body>
 	<h:messages globalOnly="true" styleClass="error"/>
   	<h3>Update Country Details</h3>
     <h:form>
-      Country Code: <h:inputText value="#{country.co_code}" id="co_code" required="true" requiredMessage="Country Code is mandatory"></h:inputText>
-  	  <h:message for="co_code" styleClass="error" />
-      <br/>
-      <br/>
-      Country Name: <h:inputText value="#{country.co_name}" id="co_name" required="true" requiredMessage="Country Name is mandatory"></h:inputText>
-      <h:message for="co_name" styleClass="error" />
-      <br/>
-      <br/>
-      Country Details: <h:inputText value="#{country.co_details}" id="co_details" p:placeholder="Enter Country Details" ></h:inputText>
-      <br/>
-      <br/>
-	<h:commandButton value="Add" action="#{controller.addCountry(country)}"/>
+     Code: <h:inputText value="#{controller.country.co_code}" readonly="#{not facesContext.postback or facesContext.renderResponse}"></h:inputText>
+		<br/>
+		<br/>
+		Name: <h:inputText type="text" value="#{controller.country.co_code}"></h:inputText>
+		<br/>
+		<br/>
+		Details: <h:inputText type="text" value="#{controller.country.co_details}"></h:inputText>
+		<br/>
+		<br/>
+	<h:commandButton value="Add" action="#{controller.updateCountry(controller.country.co_code, controller.country.co_name, controller.country.co_details)}"></h:commandButton>
    </h:form>
   </h:body>
 </html>

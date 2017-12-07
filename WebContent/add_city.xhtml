@@ -28,15 +28,19 @@
       <h:message for="reg_code" styleClass="error" />
       <br/>
       <br/>
-      Population: <h:inputText value="#{city.population}" id="population"  ></h:inputInt>
+      Population: <h:inputText value="#{city.population}" id="population"  ></h:inputText>
       <br/>
       <br/>
+      <h:selectOneRadio value="#{city.isCoastal}" >
+	    <f:selectItem itemValue="true" itemLabel="True"/>
+	    <f:selectItem itemValue="false" itemLabel="False"/>
+	  </h:selectOneRadio> 
       <br/>
       <br/>
       Area(KM): <h:inputText value="#{city.areaKM}" id="areaKM"  ></h:inputText>
       <br/>
       <br/>
-	<h:commandButton value="Add" action="#{controller.addRegion(region)}"/>
+	<h:commandButton value="Add" action="#{controller.addCity(city)}"/>
    </h:form>
   </h:body>
 </html>

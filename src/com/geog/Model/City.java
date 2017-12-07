@@ -2,12 +2,13 @@ package com.geog.Model;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 
 
 
 @ManagedBean(name="city")
-@RequestScoped
+@SessionScoped
 public class City {
 	
 	private String cty_code;
@@ -17,11 +18,20 @@ public class City {
 	private int population;
 	private boolean isCoastal;
 	private double areaKM;
+	private String sign;
 	
+	public String getSign() {
+		return sign;
+	}
+
+	public void setSign(String sign) {
+		this.sign = sign;
+	}
+
 	public City(){
 	}
 
-	public City(String cty_code, String co_code, String reg_code,String cty_name, int population, boolean isCoatal, double areaKM) {
+	public City(String cty_code, String co_code, String reg_code,String cty_name, int population, boolean isCoastal, double areaKM) {
 		super();
 		this.cty_code = cty_code;
 		this.co_code = co_code;

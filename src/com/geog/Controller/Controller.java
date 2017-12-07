@@ -26,6 +26,9 @@ public class Controller {
 	ArrayList<Region> regions;
 	ArrayList<City> cities;
 	private DAO dao;
+	private Country country;
+	private City city;
+
 
 	public Controller() {
 		super();
@@ -69,6 +72,21 @@ public class Controller {
 	public void setCountries(ArrayList<Country> countries) {
 		this.countries = countries;
 	}
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+	
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
 	
 	
 	public void loadCountries() throws Exception {
@@ -104,14 +122,34 @@ public class Controller {
 		return null;
 	}
 	
+	public String loadCountry(String countryCode) {
+		try {
+			country = dao.loadCountry(countryCode);
+			return "update_country";	
+		}catch (Exception e) {
+			FacesMessage message = new FacesMessage("Error while trying to load the country from the DAO. " + e);
+			FacesContext.getCurrentInstance().addMessage(null, message);
+		}
+		return null;
+	}
+	
 	
 	public String deleteCountry(String co_code) throws Exception {
-		
-			System.out.println("inside controler");
-			dao.deleteCountry(co_code);
-			return "country";
+		dao.deleteCountry(co_code);
+		return "country";
 		
 	}
+	
+	public String updateCountry(String co_code,String co_name,String co_details ){
+		try {
+			dao.updateCountry(co_code,co_name,co_details);
+		} catch (Exception e) {
+			System.out.println("ERROR when trying to update country");
+			e.printStackTrace();
+		}
+		return "country";
+	
+}
 	
 	public void loadRegions() throws Exception {
 		regions.clear();
@@ -159,6 +197,42 @@ public class Controller {
 		}
 	}
 	
+	public String addCity(City city) throws Exception {
+		if (dao != null) {
+			try {
+				dao.addCity(city);
+				return "city";
+			} catch (MySQLIntegrityConstraintViolationException e) {
+				FacesMessage message = new FacesMessage("Error: Attempting to add Country: " + city.getCo_code() + ", Region: " + city.getReg_code() + " and City: " + city.getCty_code());
+				FacesContext.getCurrentInstance().addMessage(null, message);
+			} catch (CommunicationsException e) {
+				FacesMessage message = new FacesMessage("Error: Cannot connect to Database");
+				FacesContext.getCurrentInstance().addMessage(null, message);
+			} catch (Exception e) {
+				FacesMessage message = new FacesMessage("Error while trying to insert City " + city.getCty_name());
+				FacesContext.getCurrentInstance().addMessage(null, message);
+			}
+		}
+		return null;
+	}
+	
+	public String finCities(City city) throws Exception {
+		if (dao != null) {
+			try {
+				dao.findCity(city);
+				return "city";
+			} catch (MySQLIntegrityConstraintViolationException e) {
+				FacesMessage message = new FacesMessage("Error: Attempting to add Country: " + city.getCo_code() + ", Region: " + city.getReg_code() + " and City: " + city.getCty_code());
+				FacesContext.getCurrentInstance().addMessage(null, message);
+			} catch (CommunicationsException e) {
+				FacesMessage message = new FacesMessage("Error: Cannot connect to Database");
+				FacesContext.getCurrentInstance().addMessage(null, message);
+			} catch (Exception e) {
+				FacesMessage message = new FacesMessage("Error while trying to insert City " + city.getCty_name());
+				FacesContext.getCurrentInstance().addMessage(null, message);
+			}
+		}
+		return null;
+	}
+	}
 
-
-}

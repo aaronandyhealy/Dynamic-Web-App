@@ -2,12 +2,13 @@ package com.geog.Model;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 
 
 
 @ManagedBean(name="region")
-@RequestScoped
+@SessionScoped
 public class Region {
 
 	private String co_code;

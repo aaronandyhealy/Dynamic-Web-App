@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:f="http://xmlns.jcp.org/jsf/core">
+  
+  <h:head>
+    <title>Find Cities</title>
+  </h:head>
+  
+  <h:body>
+	<h:messages globalOnly="true" styleClass="error"/>
+  	<h3>Find All Cities</h3>
+    <h:form>
+      Population: <h:selectOneMenu value="#{city.sign}">
+					   	<f:selectItem itemValue="Less Than" itemLabel="less_than" />
+					   	<f:selectItem itemValue="Greater Than" itemLabel="greater_than" />
+					   	<f:selectItem itemValue="Equal Too" itemLabel="equal_too" />
+				</h:selectOneMenu>
+				<h:inputText value="#{city.population}" id="population"  ></h:inputText>
+      <br/>
+      <br/>
+      Country Code: <h:inputText value="#{city.co_code}" id="co_code" ></h:inputText>
+      <br/>
+      <br/>
+      By The Sea: <h:inputText value="#{city.isCoastal}" id="cty_isCoastal" ></h:inputText>
+      <br/>
+      <br/>
+	<h:commandButton value="Search" action="#{controller.findCities(city)}"/>
+   </h:form>
+  </h:body>
+</html>
