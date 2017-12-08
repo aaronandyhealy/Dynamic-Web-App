@@ -15,6 +15,7 @@ public class Country {
 	private String co_name;
 	private String co_details;
 	
+	//Constructors
 	public Country(){
 		super();
 	}
@@ -26,6 +27,7 @@ public class Country {
 		this.co_details = co_details;
 	}
 
+	//Getters and Setters
 	public String getCo_code() {
 		return co_code;
 	}

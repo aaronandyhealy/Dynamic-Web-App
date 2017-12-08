@@ -16,6 +16,7 @@ public class Region {
 	private String reg_name;
 	private String reg_desc;
 	
+	//Constructors
 	public Region(){
 	}
 
@@ -27,6 +28,7 @@ public class Region {
 		this.reg_desc = reg_desc;
 	}
 
+	//Getters and Setters
 	public String getCo_code() {
 		return co_code;
 	}

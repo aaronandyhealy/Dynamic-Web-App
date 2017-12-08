@@ -11,32 +11,29 @@
 	<h:messages globalOnly="true" styleClass="error"/>
   	<h3>City Details</h3>
     <h:form>
-   	  City Code: <h:outputText value="#{controller.city.cty_code}" id="cty_code" required="true" requiredMessage="City Code is mandatory"></h:h:outputText>
+   	  City Code: <h:outputText value="#{controller.city.cty_code}" id="cty_code" required="true" requiredMessage="City Code is mandatory"></h:outputText>
   	  <h:message for="co_code" styleClass="error" />
       <br/>
       <br/>
-      Country Code: <h:h:outputText value="#{controller.city.co_code}" id="co_code" required="true" requiredMessage="Country Code is mandatory"></h:h:outputText>
+      Country Code: <h:outputText value="#{controller.city.co_code}" id="co_code" required="true" requiredMessage="Country Code is mandatory"></h:outputText>
   	  <h:message for="co_code" styleClass="error" />
       <br/>
       <br/>
-      Region Code: <h:h:outputText value="#{controller.city.reg_code}" id="reg_code" required="true" requiredMessage="Region Code is mandatory"></h:h:outputText>
+      Region Code: <h:outputText value="#{controller.city.reg_code}" id="reg_code" required="true" requiredMessage="Region Code is mandatory"></h:outputText>
       <h:message for="reg_code" styleClass="error" />
       <br/>
       <br/>
-      City Name: <h:outputText value="#{controller.city.cty_name}" id="cty_name" required="true"  requiredMessage="Name is mandatory"></h:h:outputTextt>
+      City Name: <h:outputText value="#{controller.city.cty_name}" id="cty_name" required="true"  requiredMessage="Name is mandatory"></h:outputText>
       <h:message for="reg_code" styleClass="error" />
       <br/>
       <br/>
-      Population: <h:h:outputText value="#{controller.city.population}" id="population"  ></h:h:outputText>
+      Population: <h:outputText value="#{controller.city.population}" id="population"  ></h:outputText>
       <br/>
       <br/>
-      <h:selectOneMenu value="#{city.isCoastal}" >
-	    <f:selectItem itemValue="true" itemLabel="True"/>
-	    <f:selectItem itemValue="false" itemLabel="False"/>
-	  </h:selectOneMenu> 
+      By The Sea:<h:outputText value="#{controller.city.isCoastal}" > </h:outputText> 
       <br/>
       <br/>
-      Area(KM): <h:h:outputText value="#{controller.city.areaKM}" id="areaKM"  ></h:h:outputText>
+      Area(KM): <h:outputText value="#{controller.city.areaKM}" id="areaKM"  ></h:outputText>
       <br/>
       <br/>
    </h:form>

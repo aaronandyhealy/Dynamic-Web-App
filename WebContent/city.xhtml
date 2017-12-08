@@ -7,7 +7,7 @@
 	<title>Cities List</title>
 	
 	<f:metadata>
-		<f:event type="preRenderView" listener="#{controller.loadCity()}"/>
+		<f:event type="preRenderView" listener="#{controller.loadCities()}"/>
 	</f:metadata>
 	
 </h:head>
@@ -55,7 +55,7 @@
 		</h:column>
 		 <h:column>
 			<f:facet name="header">Action</f:facet>
- 			<h:commandLink value="All Details" action="#{controller.loadCityDetails(city.cty_code)}"/>
+ 			<h:commandLink value="All Details" action="#{controller.loadCity(city.cty_code)}"/>
 		</h:column>
 			   
 	</h:dataTable>

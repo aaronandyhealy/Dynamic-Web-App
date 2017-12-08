@@ -30,6 +30,7 @@ public class Controller {
 	private City city;
 
 
+	//Constructors
 	public Controller() {
 		super();
 		countries = new ArrayList<Country>();
@@ -48,7 +49,8 @@ public class Controller {
 		this.regions = regions;
 		this.cities = cities;
 	}
-
+	
+	//Getters and Setters
 	public ArrayList<City> getCities() {
 		return cities;
 	}
@@ -88,7 +90,7 @@ public class Controller {
 		this.city = city;
 	}
 	
-	
+	//Load Countries Method
 	public void loadCountries() throws Exception {
 		countries.clear();
 		if (dao != null) {
@@ -100,6 +102,7 @@ public class Controller {
 		}
 	}
 	
+	//Add Countries Method
 	public String addCountry(Country country) {
 		if (dao != null) {
 			try {
@@ -122,6 +125,7 @@ public class Controller {
 		return null;
 	}
 	
+	//Load Country Method Used for Update
 	public String loadCountry(String countryCode) {
 		try {
 			country = dao.loadCountry(countryCode);
@@ -133,13 +137,14 @@ public class Controller {
 		return null;
 	}
 	
-	
+	//Delete Country Method
 	public String deleteCountry(String co_code) throws Exception {
 		dao.deleteCountry(co_code);
 		return "country";
 		
 	}
 	
+	//Update Country Method
 	public String updateCountry(String co_code,String co_name,String co_details ){
 		try {
 			dao.updateCountry(co_code,co_name,co_details);
@@ -149,8 +154,9 @@ public class Controller {
 		}
 		return "country";
 	
-}
+	}
 	
+	//Load Regions Method
 	public void loadRegions() throws Exception {
 		regions.clear();
 		if (dao != null) {
@@ -162,6 +168,7 @@ public class Controller {
 		}
 	}
 	
+	//Add Regions Method
 	public String addRegion(Region region) {
 		if (dao != null) {
 			try {
@@ -184,19 +191,7 @@ public class Controller {
 		return null;
 	}
 	
-	////CITY
-	
-	public void loadCity() throws Exception {
-		cities.clear();
-		if (dao != null) {
-			try {
-				cities = dao.loadCities();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
+	//Add City Method
 	public String addCity(City city) throws Exception {
 		if (dao != null) {
 			try {
@@ -216,23 +211,26 @@ public class Controller {
 		return null;
 	}
 	
-	public String finCities(City city) throws Exception {
-		if (dao != null) {
-			try {
-				dao.findCity(city);
-				return "city";
-			} catch (MySQLIntegrityConstraintViolationException e) {
-				FacesMessage message = new FacesMessage("Error: Attempting to add Country: " + city.getCo_code() + ", Region: " + city.getReg_code() + " and City: " + city.getCty_code());
-				FacesContext.getCurrentInstance().addMessage(null, message);
-			} catch (CommunicationsException e) {
-				FacesMessage message = new FacesMessage("Error: Cannot connect to Database");
-				FacesContext.getCurrentInstance().addMessage(null, message);
-			} catch (Exception e) {
-				FacesMessage message = new FacesMessage("Error while trying to insert City " + city.getCty_name());
-				FacesContext.getCurrentInstance().addMessage(null, message);
+	//Load Regions Method
+		public void loadCities() throws Exception {
+			cities.clear();
+			if (dao != null) {
+				try {
+					cities = dao.loadCities();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}
-		return null;
+	
+	 //Load City Method
+	 public String loadCity(String cty_code) throws Exception {
+			
+				
+					city = dao.loadCity(cty_code);
+					return "all_details";
+			
 	}
-	}
+
+}
 

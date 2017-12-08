@@ -20,16 +20,14 @@ import com.geog.Model.Region;
 public class DAO {
 	private static DataSource mysqlDS;
 	
-	/* ======================================================================================================
-	 * Constructor
-	 * ====================================================================================================== */
+	
 	public DAO() throws Exception {
 		Context context = new InitialContext();
 		String jndiName = "java:comp/env/jdbc/geography";
 		mysqlDS = (DataSource) context.lookup(jndiName);
 	}
 	
-	//countries
+	//Countries Array List Load Countries
 	public ArrayList<Country> loadCountries() throws Exception {
 		ArrayList<Country> countries = new ArrayList<Country>();
 		
@@ -57,6 +55,7 @@ public class DAO {
 		return countries;
 	}
 
+	//load country 
 	public Country loadCountry(String co_code) throws Exception {
 		List<Country> countries = new ArrayList<Country>();
 		Country country = new Country();
@@ -102,6 +101,7 @@ public class DAO {
 		myConn.close();
 	}
 	
+	//update country
 	public void updateCountry(String co_code,String co_name,String co_details) throws Exception {
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
@@ -135,7 +135,7 @@ public class DAO {
 	}
 	
 	
-	//regions
+	//regions array list
 	public ArrayList<Region> loadRegions() throws Exception {
 		ArrayList<Region> regions = new ArrayList<Region>();
 		
@@ -180,7 +180,7 @@ public class DAO {
 	}
 	
 	
-	//cities
+	//cities array list
 	public ArrayList<City> loadCities() throws Exception {
 		ArrayList<City> cities = new ArrayList<City>();
 		
@@ -230,26 +230,7 @@ public class DAO {
 		myStmt.execute();			
 	}
 	
-	public void findCity(City city) throws Exception {
-		Connection myConn = null;
-		PreparedStatement myStmt = null;
-		String sql = "";
-		
-		myConn = mysqlDS.getConnection();
-		
-		if(city.getSign() == "less_than"){
-			
-				sql = "select * from city where population < ?";
-			
-		}
-		
-		
-		
-		
-		myStmt = myConn.prepareStatement(sql);
-		myStmt.execute();			
-	}
-	
+	//Load City Method
 	public City loadCity(String code) throws Exception {
 		City city = new City();
 		Connection myConn = null;
@@ -280,4 +261,5 @@ public class DAO {
 		}	
 		return city;
 	}
+	
 }

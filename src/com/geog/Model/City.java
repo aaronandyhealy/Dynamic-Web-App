@@ -18,16 +18,8 @@ public class City {
 	private int population;
 	private boolean isCoastal;
 	private double areaKM;
-	private String sign;
 	
-	public String getSign() {
-		return sign;
-	}
-
-	public void setSign(String sign) {
-		this.sign = sign;
-	}
-
+	//Constructors
 	public City(){
 	}
 
@@ -41,7 +33,8 @@ public class City {
 		this.isCoastal = isCoastal;
 		this.areaKM = areaKM;
 	}
-
+	
+	//Getters and Setters
 	public String getCty_code() {
 		return cty_code;
 	}
